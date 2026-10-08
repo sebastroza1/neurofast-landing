@@ -29,8 +29,10 @@ La publicación oficial usa la rama `main`, carpeta `/ (root)`:
 1. Subir los archivos a `main`.
 2. En **Settings → Pages → Build and deployment**, elegir **Deploy from a branch**.
 3. Seleccionar `main` y `/ (root)`; guardar.
-4. Esperar que finalice el workflow `pages build and deployment`.
-5. Verificar [https://sebastroza1.github.io/neurofast-landing/](https://sebastroza1.github.io/neurofast-landing/).
+4. Dejar **Custom domain** vacío. Si aparece `neurofast.cl`, eliminarlo y guardar; no crear un archivo `CNAME`.
+5. Mantener activada la opción **Enforce HTTPS**.
+6. Esperar que finalice el workflow `pages build and deployment`.
+7. Verificar [https://sebastroza1.github.io/neurofast-landing/](https://sebastroza1.github.io/neurofast-landing/).
 
 Las rutas de CSS, JavaScript e imágenes son relativas, por lo que funcionan dentro del subdirectorio `/neurofast-landing/`. La URL canónica y las imágenes sociales sí usan la dirección pública absoluta.
 
