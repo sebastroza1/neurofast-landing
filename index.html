@@ -6,14 +6,22 @@
   <meta name="theme-color" content="#071a1d">
   <meta name="description" content="NeuroFAST investiga una experiencia digital para reconocer señales FAST, organizar información y conectar a pacientes, familias y profesionales de salud.">
   <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CL">
   <meta property="og:title" content="NeuroFAST · Reconocer. Conectar. Actuar.">
   <meta property="og:description" content="Tecnología responsable para acompañar el reconocimiento temprano de señales de alerta de un ACV.">
-  <meta property="og:image" content="assets/images/familia-cuidadora.jpg">
+  <meta property="og:url" content="https://sebastroza1.github.io/neurofast-landing/">
+  <meta property="og:image" content="https://sebastroza1.github.io/neurofast-landing/assets/images/familia-cuidadora.jpg">
+  <meta property="og:image:alt" content="Cuidadora acompañando a una persona mayor en su hogar">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NeuroFAST · Reconocer. Conectar. Actuar.">
+  <meta name="twitter:description" content="Prototipo universitario en investigación para acompañar el reconocimiento de señales FAST.">
+  <meta name="twitter:image" content="https://sebastroza1.github.io/neurofast-landing/assets/images/familia-cuidadora.jpg">
   <meta name="version" content="4.0-premium-commercial">
   <title>NeuroFAST · Reconocer. Conectar. Actuar.</title>
+  <link rel="canonical" href="https://sebastroza1.github.io/neurofast-landing/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23071a1d'/%3E%3Cpath d='M32 10v44M10 32h44M16.5 16.5l31 31M47.5 16.5l-31 31' stroke='%2355e6bd' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%2355e6bd'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -60,7 +68,7 @@
         <div class="hero-visual reveal delay-2" aria-label="Una cuidadora apoya a una persona mayor en su hogar">
           <div class="pulse-orbit" aria-hidden="true"></div>
           <figure class="portrait-main">
-            <img src="assets/images/familia-cuidadora.jpg" alt="Cuidadora sosteniendo con atención el brazo de una mujer mayor" width="1600" height="1067" fetchpriority="high">
+            <picture><source srcset="assets/images/familia-cuidadora.webp" type="image/webp"><img src="assets/images/familia-cuidadora.jpg" alt="Cuidadora sosteniendo con atención el brazo de una mujer mayor" width="1600" height="1067" fetchpriority="high"></picture>
             <figcaption class="photo-label"><b>La tecnología comienza con las personas.</b><span>Fotografía referencial · Pexels</span></figcaption>
           </figure>
           <div class="signal-card" aria-hidden="true">
@@ -95,7 +103,7 @@
         </div>
         <div class="human-grid">
           <figure class="human-photo reveal">
-            <img src="assets/images/consulta-medica.jpg" alt="Profesional de salud conversa con una paciente durante una consulta" width="1600" height="1067" loading="lazy">
+            <picture><source srcset="assets/images/consulta-medica.webp" type="image/webp"><img src="assets/images/consulta-medica.jpg" alt="Profesional de salud conversa con una paciente durante una consulta" width="1600" height="1067" loading="lazy"></picture>
             <figcaption class="caption">Escena referencial · Pexels</figcaption>
           </figure>
           <div class="challenge-panel reveal delay-1">
@@ -104,7 +112,7 @@
               <p class="microcopy">El producto se plantea como apoyo para pacientes, cuidadores y equipos de atención. Toda capacidad clínica deberá evaluarse formalmente antes de presentarse como efectiva.</p>
             </div>
             <div class="stat-stack">
-              <div class="mini-stat"><b>≈12 M</b><span>ACV nuevos estimados en el mundo durante 2021, según el estudio Global Burden of Disease.</span></div>
+              <div class="mini-stat"><b>11,9 M</b><span>Eventos nuevos de ACV estimados globalmente en 2021 (UI 95%: 10,7–13,2 M), estudio GBD 2021.</span></div>
               <div class="mini-stat"><b>FAST</b><span>Rostro, brazos, habla y tiempo: una guía simple para reconocer señales frecuentes.</span></div>
               <div class="mini-stat"><b>Ahora</b><span>Ante sospecha, la prioridad es contactar los servicios de urgencia sin demoras.</span></div>
             </div>
@@ -118,14 +126,15 @@
         <div class="section-head reveal">
           <div class="section-index">02 / La propuesta</div>
           <div>
-            <h2 class="section-title">Varias tecnologías.<br><em style="color:var(--mint)">Una sola experiencia.</em></h2>
-            <p class="section-intro">La visión combina observación guiada, captura de contexto y comunicación. Algunas capacidades forman parte del prototipo; otras son una hoja de ruta que aún requiere desarrollo y validación.</p>
+            <h2 class="section-title">Tecnología que acompaña.<br><em class="mint-text">Personas que deciden.</em></h2>
+            <p class="section-intro">En una situación urgente, la tecnología debe sentirse clara y cercana. La propuesta organiza lo que una persona observa, recuerda y necesita comunicar, sin reemplazar su criterio ni la atención profesional.</p>
           </div>
         </div>
 
         <div class="bento">
           <article class="bento-card large reveal">
             <div class="icon-box" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M5 8c1.4-3 4-4.5 7-4.5S17.6 5 19 8v8c-1.4 3-4 4.5-7 4.5S6.4 19 5 16V8Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 10h.01M15.5 10h.01M9 15c1.8 1.3 4.2 1.3 6 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <span class="human-kicker">Lo que una familia puede observar</span>
             <h3>Rostro, brazos y habla</h3>
             <p>Exploración multimodal de ejercicios FAST guiados: asimetrías faciales, elevación de brazos y características del habla. El rendimiento clínico de NeuroFAST aún no está establecido.</p>
             <span class="feature-tag">Prototipo e investigación</span>
@@ -133,6 +142,7 @@
           </article>
           <article class="bento-card medium reveal delay-1">
             <div class="icon-box" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 3v18M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 3"/></svg></div>
+            <span class="human-kicker">Lo que ayuda a recordar</span>
             <h3>El tiempo como dato crítico</h3>
             <p>Registro de la hora observada de inicio o de la última vez que la persona estuvo bien, junto con antecedentes aportados por el usuario.</p>
             <span class="feature-tag">Comunicación contextual</span>
@@ -140,14 +150,17 @@
           </article>
           <article class="bento-card third reveal">
             <div class="icon-box" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 19c.4-3.5 2-5 4.5-5s4.1 1.5 4.5 5m1-4c.8-1.3 2-2 3.5-2 2.2 0 3.5 1.4 3.8 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+            <span class="human-kicker">A quién queremos mantener cerca</span>
             <h3>Red de apoyo</h3><p>Avisos a contactos previamente autorizados, pensados para acompañar sin retrasar la atención de urgencia.</p><span class="feature-tag">Hoja de ruta</span>
           </article>
           <article class="bento-card third reveal delay-1">
             <div class="icon-box" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7V3Z" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M14 3v5h5M10 12h5m-5 4h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+            <span class="human-kicker">Lo que conviene contar con claridad</span>
             <h3>Resumen compartible</h3><p>Documento legible con tiempos, síntomas y antecedentes registrados por la persona o su cuidador.</p><span class="feature-tag">Concepto de producto</span>
           </article>
           <article class="bento-card third reveal delay-2">
             <div class="icon-box" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M5 12h3l2-5 4 10 2-5h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></div>
+            <span class="human-kicker">La historia entre una consulta y otra</span>
             <h3>Salud conectada</h3><p>Registros de hábitos, presión arterial, pulso y posibles dispositivos compatibles para conversaciones de salud más informadas.</p><span class="feature-tag">Investigación futura</span>
           </article>
         </div>
@@ -162,28 +175,32 @@
         </div>
         <div class="experience">
           <div class="step-tabs" role="tablist" aria-label="Etapas de la experiencia NeuroFAST">
-            <button class="step-tab" type="button" role="tab" aria-selected="true" data-step="recognize"><b>01</b><span>Reconocer<small>Identificar señales FAST</small></span></button>
-            <button class="step-tab" type="button" role="tab" aria-selected="false" data-step="register"><b>02</b><span>Registrar<small>Ordenar tiempo y contexto</small></span></button>
-            <button class="step-tab" type="button" role="tab" aria-selected="false" data-step="connect"><b>03</b><span>Conectar<small>Activar la red de apoyo</small></span></button>
-            <button class="step-tab" type="button" role="tab" aria-selected="false" data-step="share"><b>04</b><span>Compartir<small>Preparar un resumen</small></span></button>
+            <button class="step-tab" id="stepRecognize" type="button" role="tab" aria-controls="demoPanel" aria-selected="true" data-step="recognize"><b>01</b><span>Reconocer<small>Identificar señales FAST</small></span></button>
+            <button class="step-tab" id="stepRegister" type="button" role="tab" aria-controls="demoPanel" aria-selected="false" data-step="register"><b>02</b><span>Registrar<small>Ordenar tiempo y contexto</small></span></button>
+            <button class="step-tab" id="stepConnect" type="button" role="tab" aria-controls="demoPanel" aria-selected="false" data-step="connect"><b>03</b><span>Conectar<small>Activar la red de apoyo</small></span></button>
+            <button class="step-tab" id="stepShare" type="button" role="tab" aria-controls="demoPanel" aria-selected="false" data-step="share"><b>04</b><span>Compartir<small>Preparar un resumen</small></span></button>
           </div>
-          <div class="demo-stage reveal" role="tabpanel" aria-live="polite">
+          <div class="demo-stage reveal" id="demoPanel" role="tabpanel" aria-labelledby="stepRecognize" aria-live="polite" data-stage="recognize">
             <div class="phone-demo" aria-hidden="true">
               <div class="phone-top">Neuro<span>FAST</span><b>10:42</b></div>
-              <div class="scan-window"><svg id="demoIcon" viewBox="0 0 180 180"><circle cx="90" cy="90" r="58" fill="none" stroke="currentColor" stroke-width="2"/><path d="M56 75c9-8 20-8 30 0m9 0c9-8 20-8 30 0M68 117c14 10 30 10 44 0M90 77v27l-10 8h20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div class="scan-bar"></div></div>
+              <div class="scan-window" id="scanWindow"><svg id="demoIcon" viewBox="0 0 180 180"><circle class="scan-shape" cx="90" cy="90" r="58" fill="none" stroke="currentColor" stroke-width="2"/><path class="scan-shape" d="M56 75c9-8 20-8 30 0m9 0c9-8 20-8 30 0M68 117c14 10 30 10 44 0M90 77v27l-10 8h20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div class="scan-bar"></div><div class="document-preview" id="documentPreview"><strong>Resumen informativo</strong><span></span><span></span><span></span><small>PDF FICTICIO · SIN DATOS REALES</small></div></div>
               <div class="app-status"><i></i><span id="appStatus">Guía visual preparada</span></div>
               <div class="app-rows"><div class="app-row"><span>Modo</span><b id="appMode">Observación guiada</b></div><div class="app-row"><span>Estado</span><b>Demostración</b></div></div>
             </div>
             <div class="demo-copy" id="demoCopy">
               <div class="eyebrow">Etapa 01</div><h3 id="demoTitle">Reconocer señales observables</h3><p id="demoText">Una guía breve presenta los elementos de FAST en lenguaje directo para apoyar la observación inicial, siempre priorizando la llamada a urgencias.</p>
-              <ul id="demoList"><li>Rostro y sonrisa</li><li>Elevación de ambos brazos</li><li>Claridad del habla y tiempo de inicio</li></ul><span class="concept-label">Interfaz conceptual · Sin diagnóstico</span>
+              <div class="fast-controls" id="fastControls" aria-label="Explorar elementos del método FAST"><button type="button" data-fast="face" aria-pressed="true"><b>F</b><span>Rostro</span></button><button type="button" data-fast="arms" aria-pressed="false"><b>A</b><span>Brazos</span></button><button type="button" data-fast="speech" aria-pressed="false"><b>S</b><span>Habla</span></button><button type="button" data-fast="time" aria-pressed="false"><b>T</b><span>Tiempo</span></button></div>
+              <ul id="demoList"><li>Rostro y sonrisa</li><li>Elevación de ambos brazos</li><li>Claridad del habla y tiempo de inicio</li></ul>
+              <button class="demo-action" id="generateSummary" type="button" hidden>Generar PDF ficticio <span aria-hidden="true">↗</span></button>
+              <p class="demo-action-note" id="summaryNote" hidden>Demostración visual: no crea un informe clínico ni utiliza datos personales.</p>
+              <span class="concept-label">Interfaz conceptual · Sin diagnóstico</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section paper" id="seguimiento" style="padding-top:0">
+    <section class="section paper flush-top" id="seguimiento">
       <div class="shell">
         <div class="section-head reveal">
           <div class="section-index">04 / Continuidad de cuidado</div>
@@ -194,14 +211,14 @@
             <h3>Datos cotidianos, presentados con claridad.</h3><p>Una experiencia de seguimiento podría reunir hábitos, antecedentes y mediciones aportadas por la persona. Los valores que se muestran aquí son ficticios y solo ilustran la interfaz.</p>
             <div class="care-points"><div class="care-point"><b>01</b><span>Registro personal y consentimiento explícito</span></div><div class="care-point"><b>02</b><span>Contexto legible para pacientes y cuidadores</span></div><div class="care-point"><b>03</b><span>Integraciones futuras sujetas a validación</span></div></div>
             <div class="dashboard">
-              <div class="chart-card reveal"><div class="chart-head"><span>Presión arterial</span><span>Ejemplo</span></div><div class="chart-value">118 / 76 <small>mmHg</small></div><svg class="chart-svg" viewBox="0 0 300 100" aria-label="Gráfico ficticio de presión arterial"><path d="M0 20H300M0 50H300M0 80H300" stroke="#26474a"/><polyline class="chart-line" points="0,57 38,61 76,45 114,55 152,39 190,47 228,35 266,43 300,37" fill="none" stroke="#55e6bd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="chart-card reveal"><div class="chart-head"><span>Presión arterial · datos ficticios</span><span id="chartPeriodLabel">7 días</span></div><div class="chart-value" id="chartValue" aria-live="polite">118 / 76 <small>mmHg</small></div><div class="chart-periods" aria-label="Cambiar periodo del gráfico"><button type="button" data-period="7" aria-pressed="true">7 días</button><button type="button" data-period="30" aria-pressed="false">30 días</button><button type="button" data-period="90" aria-pressed="false">90 días</button></div><svg class="chart-svg" viewBox="0 0 300 100" role="img" aria-label="Gráfico ficticio de presión arterial para 7 días"><path d="M0 20H300M0 50H300M0 80H300" stroke="#26474a"/><polyline class="chart-line" points="0,57 38,61 76,45 114,55 152,39 190,47 228,35 266,43 300,37" fill="none" stroke="#55e6bd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
               <div class="habits-card"><div class="chart-head"><span>Hábitos</span><span>Demo</span></div><div class="habit-row"><span>Actividad</span><b>4 días</b></div><div class="habit-row"><span>Sueño</span><b>7 h 30</b></div><div class="habit-row"><span>Registros</span><b>Al día</b></div></div>
             </div>
           </div>
           <div class="care-collage reveal delay-1">
-            <figure class="care-photo wide"><img src="assets/images/presion-arterial.jpg" alt="Pareja mayor registra su presión arterial en casa" width="1600" height="1067" loading="lazy"><small>Seguimiento en el hogar · Pexels</small></figure>
-            <figure class="care-photo"><img src="assets/images/smartwatch-salud.jpg" alt="Persona revisa información de salud en un reloj inteligente" width="1600" height="1067" loading="lazy"><small>Tecnología wearable · Pexels</small></figure>
-            <figure class="care-photo"><img src="assets/images/consulta-medica.jpg" alt="Conversación entre una paciente y un profesional de salud" width="1600" height="1067" loading="lazy"><small>Atención profesional · Pexels</small></figure>
+            <figure class="care-photo wide"><picture><source srcset="assets/images/presion-arterial.webp" type="image/webp"><img src="assets/images/presion-arterial.jpg" alt="Pareja mayor registra su presión arterial en casa" width="1600" height="1067" loading="lazy"></picture><small>Seguimiento en el hogar · Pexels</small></figure>
+            <figure class="care-photo"><picture><source srcset="assets/images/smartwatch-salud.webp" type="image/webp"><img src="assets/images/smartwatch-salud.jpg" alt="Persona revisa información de salud en un reloj inteligente" width="1600" height="1067" loading="lazy"></picture><small>Tecnología wearable · Pexels</small></figure>
+            <figure class="care-photo"><picture><source srcset="assets/images/consulta-medica.webp" type="image/webp"><img src="assets/images/consulta-medica.jpg" alt="Conversación entre una paciente y un profesional de salud" width="1600" height="1067" loading="lazy"></picture><small>Atención profesional · Pexels</small></figure>
           </div>
         </div>
       </div>
@@ -210,14 +227,14 @@
     <section class="section deep" id="evidencia">
       <div class="shell">
         <div class="evidence-intro reveal">
-          <div><div class="section-index">05 / Evidencia y transparencia</div><h2 class="section-title" style="margin-top:16px">Datos reales.<br><em style="color:var(--mint)">Promesas cuidadosas.</em></h2></div>
+          <div><div class="section-index">05 / Evidencia y transparencia</div><h2 class="section-title compact-top">Datos reales.<br><em class="mint-text">Promesas cuidadosas.</em></h2></div>
           <p class="section-intro">La literatura explica la urgencia y muestra tecnologías comparables; no valida clínicamente NeuroFAST. Por eso distinguimos evidencia publicada, prototipo y hoja de ruta.</p>
         </div>
         <div class="proof-grid">
-          <article class="proof-card reveal"><b><span data-counter="75.9">75,9</span>%</b><h3>Con al menos un signo FAST documentado</h3><p>224 de 295 personas con ACV confirmado en una cohorte retrospectiva. No es la sensibilidad de NeuroFAST.</p><a href="https://doi.org/10.1016/j.jemermed.2026.08.008" target="_blank" rel="noopener">Journal of Emergency Medicine · 2026 ↗</a></article>
-          <article class="proof-card reveal delay-1"><b><span data-counter="17">17</span> min</b><h3>Frente a 34,5 min en la cohorte</h3><p>Tiempo desde salida de la escena hasta hospital asociado a presencia o ausencia de signos FAST. No demuestra causalidad.</p><a href="https://doi.org/10.1016/j.jemermed.2026.08.008" target="_blank" rel="noopener">Estudio observacional · 2026 ↗</a></article>
-          <article class="proof-card reveal delay-2"><b><span data-counter="4.5">4,5</span> h</b><h3>Ventana habitual de trombólisis</h3><p>Para pacientes elegibles con ACV isquémico. La indicación y el tratamiento pertenecen exclusivamente a equipos clínicos.</p><a href="https://www.ahajournals.org/doi/10.1161/STR.0000000000000513" target="_blank" rel="noopener">Guía AHA/ASA · 2026 ↗</a></article>
-          <article class="proof-card reveal delay-3"><b>160,5 M</b><h3>DALYs mundiales por ACV</h3><p>Años de vida saludable perdidos estimados para 2021. No es un conteo de pacientes ni un dato específico de Chile.</p><a href="https://doi.org/10.1016/S0140-6736(24)00757-8" target="_blank" rel="noopener">The Lancet · 2024 ↗</a></article>
+          <article class="proof-card reveal"><b><span data-counter="75.9">75,9</span>%</b><h3>Con al menos un signo FAST documentado</h3><p>224 de 295 personas con ACV confirmado, trasladadas en ambulancia a dos hospitales de Noruega entre junio de 2018 y mayo de 2019. No es la sensibilidad de NeuroFAST.</p><a href="https://doi.org/10.1016/j.jemermed.2026.08.008" target="_blank" rel="noopener">Journal of Emergency Medicine · publicado en 2026 ↗</a></article>
+          <article class="proof-card reveal delay-1"><b><span data-counter="17">17</span> min</b><h3>Frente a 34,5 min en la misma cohorte</h3><p>Mediana desde la salida de la escena hasta el hospital, con y sin signos FAST documentados. Asociación observacional; no demuestra causalidad.</p><a href="https://doi.org/10.1016/j.jemermed.2026.08.008" target="_blank" rel="noopener">Noruega · datos 2018–2019 · publicación 2026 ↗</a></article>
+          <article class="proof-card reveal delay-2"><b><span data-counter="4.5">4,5</span> h</b><h3>Ventana estándar de trombólisis</h3><p>Guía AHA/ASA 2026 para pacientes elegibles con ACV isquémico; algunos casos seleccionados pueden evaluarse en ventanas extendidas mediante imágenes avanzadas.</p><a href="https://www.ahajournals.org/doi/10.1161/STR.0000000000000513" target="_blank" rel="noopener">Guía clínica AHA/ASA · 2026 ↗</a></article>
+          <article class="proof-card reveal delay-3"><b>160,5 M</b><h3>DALYs mundiales por ACV</h3><p>Estimación GBD para 2021 (UI 95%: 147,8–171,6 M). Son años de vida saludable perdidos, no pacientes ni un dato específico de Chile.</p><a href="https://doi.org/10.1016/S0140-6736(24)00757-8" target="_blank" rel="noopener">The Lancet Neurology · publicado en 2024 ↗</a></article>
         </div>
         <p class="evidence-note"><strong>Cómo leer estos datos:</strong> el 24,1% restante de la cohorte no tuvo signos FAST documentados. Esto no convierte otras mediciones en métodos de detección ni permite atribuir a una aplicación una efectividad del 75,9%. Ante síntomas sospechosos, debe solicitarse ayuda urgente.</p>
         <details class="bibliography"><summary>Explorar bibliografía y antecedentes tecnológicos</summary><div class="source-list">
@@ -233,7 +250,7 @@
       <div class="shell">
         <div class="commercial reveal">
           <div class="commercial-top"><h2>Tecnología con propósito. <em>Validación con rigor.</em></h2><div class="commercial-copy"><p>NeuroFAST es un emprendimiento universitario chileno en fase de prototipo. Buscamos colaboración para comprender necesidades reales, evaluar usabilidad y construir evidencia antes de realizar promesas clínicas.</p><a class="button primary" href="mailto:sebastroza10@gmail.com?subject=Inter%C3%A9s%20en%20NeuroFAST">Solicitar presentación <span aria-hidden="true">↗</span></a></div></div>
-          <div class="commercial-grid"><article class="market-card"><small>B2G · En exploración</small><h3>Municipalidades</h3><p>Educación comunitaria, preparación de cuidadores y programas de acompañamiento que prioricen una respuesta responsable.</p></article><article class="market-card"><small>B2B · En exploración</small><h3>Instituciones de salud</h3><p>Investigación de flujos para organizar información aportada por pacientes y facilitar conversaciones con profesionales.</p></article><article class="market-card"><small>B2C · En exploración</small><h3>Familias y cuidadores</h3><p>Herramientas de orientación, registro personal y coordinación con una red de confianza configurada por el usuario.</p></article></div>
+          <div class="commercial-grid"><article class="market-card"><small>B2G · En exploración</small><h3>Municipalidades</h3><p>Educación comunitaria y programas para cuidadores que prioricen una respuesta responsable.</p></article><article class="market-card"><small>B2B · En exploración</small><h3>Centros de salud</h3><p>Investigación de flujos para organizar información aportada por pacientes.</p></article><article class="market-card"><small>B2B · En exploración</small><h3>Teleasistencia</h3><p>Coordinación de alertas y redes autorizadas, sujeta a validación de seguridad y usabilidad.</p></article><article class="market-card"><small>B2B · En exploración</small><h3>Residencias</h3><p>Apoyo conceptual para protocolos de observación y comunicación de antecedentes.</p></article><article class="market-card"><small>B2C · En exploración</small><h3>Familias y cuidadores</h3><p>Orientación, registro personal y coordinación con una red de confianza.</p></article></div>
         </div>
       </div>
     </section>

@@ -11,6 +11,13 @@ menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => 
   menuButton.setAttribute('aria-expanded', 'false');
 }));
 
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape' || !menu.classList.contains('open')) return;
+  menu.classList.remove('open');
+  menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.focus();
+});
+
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const reveals = document.querySelectorAll('.reveal');
 
@@ -68,18 +75,51 @@ const stageData = {
 };
 
 const icons = {
-  face: '<circle cx="90" cy="90" r="58" fill="none" stroke="currentColor" stroke-width="2"/><path d="M56 75c9-8 20-8 30 0m9 0c9-8 20-8 30 0M68 117c14 10 30 10 44 0M90 77v27l-10 8h20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
-  clock: '<circle cx="90" cy="90" r="58" fill="none" stroke="currentColor" stroke-width="2"/><path d="M90 55v38l27 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>',
-  network: '<circle cx="90" cy="63" r="22" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="51" cy="111" r="16" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="129" cy="111" r="16" fill="none" stroke="currentColor" stroke-width="2"/><path d="M76 80 61 97m43-17 15 17M70 126h40" fill="none" stroke="currentColor" stroke-width="2"/>',
-  document: '<path d="M58 37h47l25 25v81H58V37Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M105 37v27h25M75 88h38m-38 18h38m-38 18h26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
+  face: '<circle class="scan-shape" cx="90" cy="90" r="58" fill="none" stroke="currentColor" stroke-width="2"/><path class="scan-shape" d="M56 75c9-8 20-8 30 0m9 0c9-8 20-8 30 0M68 117c14 10 30 10 44 0M90 77v27l-10 8h20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+  arms: '<circle cx="90" cy="48" r="18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M90 67v63M69 141h42" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path class="motion-arm" d="M88 78 48 60 28 39" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path class="motion-arm" d="M92 78 132 60 152 39" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>',
+  speech: '<path d="M40 48h100v70H91l-28 21 8-21H40V48Z" fill="none" stroke="currentColor" stroke-width="2"/><path class="speech-bar" d="M61 83v12" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path class="speech-bar" d="M78 72v34" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path class="speech-bar" d="M95 63v52" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path class="speech-bar" d="M112 75v28" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path class="speech-bar" d="M129 83v12" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>',
+  time: '<circle class="scan-shape" cx="90" cy="90" r="58" fill="none" stroke="currentColor" stroke-width="2"/><path class="scan-shape" d="M90 55v38l27 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>',
+  clock: '<circle class="scan-shape" cx="90" cy="90" r="58" fill="none" stroke="currentColor" stroke-width="2"/><path class="scan-shape" d="M90 55v38l27 16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>',
+  network: '<circle class="network-node" cx="90" cy="55" r="22" fill="none" stroke="currentColor" stroke-width="2"/><circle class="network-node" cx="48" cy="119" r="17" fill="none" stroke="currentColor" stroke-width="2"/><circle class="network-node" cx="132" cy="119" r="17" fill="none" stroke="currentColor" stroke-width="2"/><path class="network-link" d="M77 73 58 103m45-30 19 30M66 119h48" fill="none" stroke="currentColor" stroke-width="2"/>',
+  document: '<path class="scan-shape" d="M58 37h47l25 25v81H58V37Z" fill="none" stroke="currentColor" stroke-width="2"/><path class="scan-shape" d="M105 37v27h25M75 88h38m-38 18h38m-38 18h26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
 };
 
 const stepTabs = [...document.querySelectorAll('[data-step]')];
+const demoStage = document.querySelector('.demo-stage');
+const demoIcon = document.querySelector('#demoIcon');
+const fastControls = document.querySelector('#fastControls');
+const fastButtons = [...document.querySelectorAll('[data-fast]')];
+const generateSummary = document.querySelector('#generateSummary');
+const summaryNote = document.querySelector('#summaryNote');
+const documentPreview = document.querySelector('#documentPreview');
+const scanWindow = document.querySelector('#scanWindow');
+let summaryTimer;
+
+function selectFast(button) {
+  fastButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  demoIcon.innerHTML = icons[button.dataset.fast];
+  demoStage.dataset.visual = button.dataset.fast;
+}
+
+fastButtons.forEach(button => button.addEventListener('click', () => selectFast(button)));
 
 function selectStep(button) {
   stepTabs.forEach(tab => tab.setAttribute('aria-selected', String(tab === button)));
+  stepTabs.forEach(tab => { tab.tabIndex = tab === button ? 0 : -1; });
   const data = stageData[button.dataset.step];
   const copy = document.querySelector('#demoCopy');
+
+  window.clearTimeout(summaryTimer);
+  demoStage.dataset.stage = button.dataset.step;
+  demoStage.setAttribute('aria-labelledby', button.id);
+  fastControls.hidden = button.dataset.step !== 'recognize';
+  generateSummary.hidden = button.dataset.step !== 'share';
+  summaryNote.hidden = button.dataset.step !== 'share';
+  documentPreview.classList.remove('show');
+  scanWindow.classList.remove('preview-ready');
+  generateSummary.disabled = false;
+  generateSummary.removeAttribute('aria-busy');
+  generateSummary.firstChild.textContent = 'Generar PDF ficticio ';
 
   if (!reducedMotion) {
     copy.animate(
@@ -98,10 +138,12 @@ function selectStep(button) {
   }));
   document.querySelector('#appStatus').textContent = data.status;
   document.querySelector('#appMode').textContent = data.mode;
-  document.querySelector('#demoIcon').innerHTML = icons[data.icon];
+  demoIcon.innerHTML = icons[data.icon];
+  demoStage.dataset.visual = data.icon;
 }
 
 stepTabs.forEach((button, index) => {
+  button.tabIndex = index === 0 ? 0 : -1;
   button.addEventListener('click', () => selectStep(button));
   button.addEventListener('keydown', event => {
     if (!['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft'].includes(event.key)) return;
@@ -113,6 +155,19 @@ stepTabs.forEach((button, index) => {
   });
 });
 
+generateSummary.addEventListener('click', () => {
+  generateSummary.disabled = true;
+  generateSummary.setAttribute('aria-busy', 'true');
+  generateSummary.firstChild.textContent = 'Preparando demostración… ';
+  summaryTimer = window.setTimeout(() => {
+    documentPreview.classList.add('show');
+    scanWindow.classList.add('preview-ready');
+    generateSummary.disabled = false;
+    generateSummary.removeAttribute('aria-busy');
+    generateSummary.firstChild.textContent = 'PDF ficticio listo ';
+  }, reducedMotion ? 0 : 650);
+});
+
 const chart = document.querySelector('.chart-card');
 if (chart && 'IntersectionObserver' in window) {
   new IntersectionObserver(([entry], observer) => {
@@ -122,6 +177,31 @@ if (chart && 'IntersectionObserver' in window) {
     }
   }, { threshold: .35 }).observe(chart);
 }
+
+const chartSeries = {
+  7: { value: '118 / 76', points: '0,57 38,61 76,45 114,55 152,39 190,47 228,35 266,43 300,37', label: '7 días' },
+  30: { value: '121 / 78', points: '0,62 38,48 76,53 114,39 152,58 190,43 228,50 266,34 300,45', label: '30 días' },
+  90: { value: '119 / 77', points: '0,49 38,55 76,47 114,51 152,44 190,46 228,39 266,43 300,40', label: '90 días' }
+};
+const periodButtons = [...document.querySelectorAll('[data-period]')];
+const chartLine = document.querySelector('.chart-line');
+const chartValue = document.querySelector('#chartValue');
+const chartPeriodLabel = document.querySelector('#chartPeriodLabel');
+
+periodButtons.forEach(button => button.addEventListener('click', () => {
+  const series = chartSeries[button.dataset.period];
+  periodButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  chartLine.setAttribute('points', series.points);
+  chartValue.replaceChildren(document.createTextNode(`${series.value} `));
+  const unit = document.createElement('small');
+  unit.textContent = 'mmHg';
+  chartValue.append(unit);
+  chartPeriodLabel.textContent = series.label;
+  document.querySelector('.chart-svg').setAttribute('aria-label', `Gráfico ficticio de presión arterial para ${series.label}`);
+  if (!reducedMotion) {
+    chartLine.animate([{ strokeDashoffset: 500 }, { strokeDashoffset: 0 }], { duration: 650, easing: 'ease-out' });
+  }
+}));
 
 if (!reducedMotion && 'IntersectionObserver' in window) {
   const numberObserver = new IntersectionObserver(entries => entries.forEach(entry => {

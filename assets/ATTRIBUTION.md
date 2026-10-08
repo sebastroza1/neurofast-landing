@@ -19,3 +19,5 @@ La inclusión de personas identificables no debe interpretarse como respaldo de 
 - No usar una fotografía como marca comercial.
 
 Antes de reutilizar estas imágenes en otra campaña o producto, conviene revisar nuevamente la licencia y la página individual del recurso.
+
+Las variantes `.webp` son conversiones optimizadas de estos mismos archivos para la web; conservan la misma autoría, origen y condiciones de uso.
